@@ -1,11 +1,8 @@
 const extend = require('xtend');
 const createRandomId = require('json-rpc-random-id')();
 const request = require("request");
-const Connection = require('@solana/web3.js').Connection;
 
 module.exports = SolanaQuery;
-
-let urlDefault = "https://devnet.solana.com";
 
 function addressToPublicKey(address) {
   return new Web3.PublicKey(address);
@@ -15,17 +12,15 @@ function addressToPublicKey(address) {
  * Constructor function
  * Init SolanaQuery
  * 
- * @param {string | Web3.Connection} provider
+ * @param {string} rpcEndpoint The url of RPC Endpoint
  * @void
  */
-function SolanaQuery(provider){
-  if (provider instanceof Connection) {
-    this._rpcEndpoint = provider._rpcEndpoint;
-  } else if (typeof(provider)==="string") {
-    this._rpcEndpoint = provider;
+function SolanaQuery(rpcEndpoint){
+  if (typeof(rpcEndpoint)==="string") {
+    this._rpcEndpoint = rpcEndpoint;
   }
   else {
-    throw (new Error("Provider is invalid. Please check!"));
+    throw (new Error("rpcEndpoint is invalid. Please check!"));
   }
 }
 
