@@ -1,0 +1,17 @@
+{
+  "name": "solana-query",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@solana/web3.js": "^0.84.1",
+    "json-rpc-random-id": "^1.0.1",
+    "request": "^2.88.2",
+    "xtend": "^4.0.2"
+  }
+}
